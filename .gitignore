@@ -1,0 +1,6 @@
+node_modules
+client
+routes/router-bk.js
+
+.env
+.envbk
