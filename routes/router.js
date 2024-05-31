@@ -26,7 +26,7 @@ router.post("/send", upload.single("cv"), async (req, res) => {
       to: process.env.EMAIL,
       subject: `Qualy Myanmar Recruit - New Application From ${fullName}`,
       html: `
-      <h3>A new application has been received from Qualy Myanmar recruit site.</h3>
+      <h3>A new application has been received from Qualy Myanmar Recruit Site.</h3>
       <h4>Information</h4>
       <p>- Name: ${fullName}</p>
       <p>- Email Address: ${emailAddress}</p>
