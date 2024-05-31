@@ -22,7 +22,7 @@ router.post("/send", upload.single("cv"), async (req, res) => {
 
     // Mail options for recipient (process.env.EMAIL)
     const recipientMailOptions = {
-      from: `QM Recruit Notifications <${process.env.EMAIL}>`,
+      from: `Qualy Myanmar Recruit Notifications <${process.env.EMAIL}>`,
       to: process.env.EMAIL,
       subject: `QM Recruit - New Application From ${fullName}`,
       html: `
@@ -44,14 +44,14 @@ router.post("/send", upload.single("cv"), async (req, res) => {
 
     // Mail options for user (emailAddress)
     const userMailOptions = {
-      from: `QualyRecruiter <${process.env.EMAIL}>`,
+      from: `Qualy Myanmar <${process.env.EMAIL}>`,
       to: emailAddress,
-      subject: `QM Recruit - Your Application for ${selectedPosition}`,
+      subject: `Qualy Myanmar Recruit - Your Application for ${selectedPosition}`,
       html: `
       <h3>Thank you for your application, ${fullName}.</h3>
       <p>We have received your application for the ${selectedPosition} position.</p>
       <p>Our team will review your application and contact you soon.</p>
-      <p>Best regards,<br>QM Recruit Team</p>`,
+      <p>Best regards,<br>Qualy Myanmar Recruit Team</p>`,
     };
 
     // Send email to recipient
