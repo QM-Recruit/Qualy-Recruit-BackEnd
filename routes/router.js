@@ -24,9 +24,9 @@ router.post("/send", upload.single("cv"), async (req, res) => {
     const recipientMailOptions = {
       from: `Qualy Myanmar Recruit Notifications <${process.env.EMAIL}>`,
       to: process.env.EMAIL,
-      subject: `QM Recruit - New Application From ${fullName}`,
+      subject: `Qualy Myanmar Recruit - New Application From ${fullName}`,
       html: `
-      <h3>A new application has been received from QM recruit site.</h3>
+      <h3>A new application has been received from Qualy Myanmar recruit site.</h3>
       <h4>Information</h4>
       <p>- Name: ${fullName}</p>
       <p>- Email Address: ${emailAddress}</p>
