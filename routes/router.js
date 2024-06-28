@@ -1,15 +1,12 @@
 import express from "express";
 const router = express.Router();
-import multer from "multer";
 import nodemailer from "nodemailer";
-
-const upload = multer({
-  storage: multer.memoryStorage(),
-});
+import dotenv from "dotenv";
+dotenv.config();
 
 // send mail
-router.post("/send", upload.single("cv"), async (req, res) => {
-  const { selectedPosition, emailAddress, phNumber, shiftSystem, fullName } = req.body;
+router.post("/send",  async (req, res) => {
+  const { selectedPosition, emailAddress, phNumber, fullName } = req.body;
 
   try {
     const transporter = nodemailer.createTransport({
@@ -32,14 +29,7 @@ router.post("/send", upload.single("cv"), async (req, res) => {
       <p>- Email Address: ${emailAddress}</p>
       <p>- Phone Number: ${phNumber}</p>
       <p>- Position: ${selectedPosition}</p>
-      <p>- Shift System: ${shiftSystem}</p>
       <p>Please contact the applicant and ask he/she to send his/her resume (CV).</p>`,
-      attachments: [
-        {
-          filename: req.file.originalname,
-          content: req.file.buffer,
-        },
-      ],
     };
 
     // Mail options for user (emailAddress)
